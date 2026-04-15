@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+
+# ROS 2
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Logs and results
+*.log
+results/
+*.bag
+*.db3
+
+# Editors
+.vscode/
+.idea/
+
+# OS
+.DS_Store
