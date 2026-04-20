@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from matplotlib.patches import Rectangle
-from .grid_map import GridMap, wall_gap_map
+from .discrete_grid_map import GridMap, wall_gap_map, maze_map
 
 FRAMES_PER_SECOND = 4
 dt = 1 / FRAMES_PER_SECOND
@@ -40,7 +40,7 @@ def init_grid_plot(grid_map, start_indicator=False):
     ax.set_yticks([y - 0.5 for y in range(1, grid_map.rows)], minor=True)
     
     if start_indicator: ax.text(grid_map.start[1] - 0.25, grid_map.start[0] + 0.25, "S", fontsize=18, fontweight="bold")
-    else: ax.add_patch(agent_patch)
+    ax.add_patch(agent_patch)
     ax.text(grid_map.goal[1] - 0.25, grid_map.goal[0] + 0.25, "G", fontsize=18, fontweight="bold")
     ax.grid(which="minor", color="black", linestyle="-", linewidth=0.5)
     ax.set_aspect("equal")
@@ -75,7 +75,7 @@ def init_grid_plot(grid_map, start_indicator=False):
         "seed_text": seed_text,}
 
 # TODO: Implement trajecotry mode; agent position and its past trajectory are actively plotted
-def update_grid_frame(handles, agent_state, episode=None, step=None, seed=None): # Frame-only mode
+def update_grid_frame(handles, agent_state, dt, episode=None, step=None, seed=None): # Frame-only mode
     handles["episode_text"].set_text(f"Episode: {episode}")
     handles["step_text"].set_text(f"Step: {step}")
     handles["seed_text"].set_text(f"Seed: {seed}")
@@ -83,8 +83,9 @@ def update_grid_frame(handles, agent_state, episode=None, step=None, seed=None):
     plt.pause(dt)
     
 
-handles = init_grid_plot(wall_gap_map, start_indicator=False)
-
+# For testing purposes
+handles = init_grid_plot(maze_map, start_indicator=False)
+'''
 test_state_sequence = [
     (0, 1),
     (1, 1),
@@ -102,12 +103,12 @@ test_state_sequence = [
     (9, 5),
     (9, 6),
     (9, 7),
-    (9, 8),
-]
+    (9, 8)]
 
 i = 0
 for state in test_state_sequence:
-    update_grid_frame(handles, state, 0, i, 0)
+    update_grid_frame(handles, state, dt, 0, i, 0)
     i+=1
-
+    '''
 plt.show()
+

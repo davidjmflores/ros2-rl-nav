@@ -1,13 +1,3 @@
-from dataclasses import dataclass, field
-@dataclass
-class GridMap:
-    rows: int = 10
-    cols: int = 10
-    start: tuple[int, int] = (0, 1)
-    goal: tuple[int, int] = (9, 8)
-    walls: list[tuple[int, int]] = field(default_factory=list)
-
-
 class DiscreteGridworld:
     ACTION_TO_DELTA = {
             0: (-1, 0),
