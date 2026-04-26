@@ -1,4 +1,4 @@
-class DiscreteGridworld:
+class Gridworld:
     ACTION_TO_DELTA = {
             0: (-1, 0),
             1: ( 1, 0),

@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from matplotlib.patches import Rectangle
-from .discrete_grid_map import GridMap, wall_gap_map, maze_map
+from .grid_map import GridMap, maze_map
 
 FRAMES_PER_SECOND = 4
 dt = 1 / FRAMES_PER_SECOND
