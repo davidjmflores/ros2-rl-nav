@@ -84,7 +84,7 @@ def update_grid_frame(handles, agent_state, dt, episode=None, step=None, seed=No
     
 
 # For testing purposes
-handles = init_grid_plot(maze_map, start_indicator=False)
+handles = init_grid_plot(maze_map, start_indicator=True)
 '''
 test_state_sequence = [
     (0, 1),
