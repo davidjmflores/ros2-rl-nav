@@ -17,8 +17,7 @@ class EpsilonGreedyPolicy:
 
     def sample(self, rng, s, Q):
         actions = list(self.env.actions(s))
-        if not actions: raise ValueError(f"No actions for state {s}")
-
+        if not actions: raise ValueError(f"No actions available in state: {s}")
 
         if rng.random() < self.epsilon: return actions[rng.integers(len(actions))]
 
